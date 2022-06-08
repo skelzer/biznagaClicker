@@ -1,0 +1,26 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+
+
+
+
+<button class="btn", id="btn_click_main">Haz una biznaga</button>
+
+
+
+<script>
+    //CONST DECLARATION
+    const socket = io()
+    //ELEMENT DECLARATION
+    let buttonMain = $("#btn_click_main")
+
+    function  refreshPage(){
+
+    }
+    //EVENT LISTENERS
+    buttonMain.click(function (){
+        socket.emit("click")
+    })
+    //SOCKET EVENT LISTENERS
+</script>
