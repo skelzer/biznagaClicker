@@ -5,7 +5,11 @@
 
 
 
-<button class="btn", id="btn_click_main">Haz una biznaga</button>
+<div clas="div", id="div_cookie_amount">0</div>
+<button class="block", id="btn_click_main">Haz una biznaga</button>
+<span class="spacing"></span>
+<button type="button" class="block", id="btn_hire_cousin">Block Button</button>
+<link href="style.css" rel="stylesheet">
 
 
 
@@ -14,13 +18,21 @@
     const socket = io()
     //ELEMENT DECLARATION
     let buttonMain = $("#btn_click_main")
+    let hireCousin = $("#btn_hire_cousin")
+    let cookieCounter = $("#div_cookie_amount")
 
     function  refreshPage(){
 
     }
     //EVENT LISTENERS
     buttonMain.click(function (){
-        socket.emit("click")
+        socket.emit("clickMain")
+    })
+    hireCousin.click(function (){
+        socket.emit("hire","cousin")
     })
     //SOCKET EVENT LISTENERS
+    socket.on("refresh", function (playerStatus){
+        cookieCounter.text(playerStatus.cookies)
+    })
 </script>
